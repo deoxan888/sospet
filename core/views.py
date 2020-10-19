@@ -4,7 +4,7 @@ from django.views.decorators.csrf import csrf_protect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-
+from django.contrib import messages
 
 # Create your views here.
 
@@ -32,5 +32,5 @@ def submit_login(request):
             login(request, user)
             return redirect('/login/#')
         else:
-            message.error(reuest, 'Usuário e senha invalido. Favor tentar novamente')
+            messages.error(request, 'Usuário e senha invalido. Favor tentar novamente')
         return redirect('/login/')    
